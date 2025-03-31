@@ -2,7 +2,7 @@ package Nivell3.Exercici1.entities;
 
 import Nivell3.Exercici1.json.JsonSerializer;
 
-@JsonSerializer.JsonFile(path = "src/main/java/Nivell2/Exercici1/json/clown.json")
+@JsonSerializer.JsonFile(path = "src/main/java/Nivell3/Exercici1/json/clown.json")
 public class Clown {
 
     private String clownName;

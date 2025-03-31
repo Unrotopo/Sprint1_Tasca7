@@ -9,6 +9,9 @@ public class Main {
         try {
             Clown clown = new Clown("Triston", "Payaso Vagabundo");
             JsonSerializer.serialize(clown);
+            System.out.println("");
+            JsonSerializer.annotationReader(clown);
+
         } catch (Exception e) {
             e.printStackTrace();
         }

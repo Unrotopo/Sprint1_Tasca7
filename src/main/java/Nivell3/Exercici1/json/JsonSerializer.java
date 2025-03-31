@@ -9,6 +9,7 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
+import java.sql.SQLOutput;
 
 public class JsonSerializer {
 
@@ -29,6 +30,20 @@ public class JsonSerializer {
             mapper.writerWithDefaultPrettyPrinter().writeValue(new File(filePath), clown);
 
             System.out.println("JSON saved to " + filePath);
+        } else {
+            System.out.println("No @JsonFile annotation found");
+        }
+    }
+
+    public static void annotationReader(Clown clown) throws IOException {
+
+        Class<? extends Clown> clazz = clown.getClass();
+
+        if (clazz.isAnnotationPresent(JsonFile.class)) {
+            JsonFile annotation = clazz.getAnnotation(JsonFile.class);
+
+            System.out.println("Anotation found in: " + clazz.getCanonicalName());
+            System.out.println("Path: " + annotation.path());
         } else {
             System.out.println("No @JsonFile annotation found");
         }
