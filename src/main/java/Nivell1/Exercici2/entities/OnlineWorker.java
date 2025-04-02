@@ -10,11 +10,11 @@ public class OnlineWorker extends Worker {
 
     @Override
     public double calculateSalary(int monthlyWorkHours) {
-        return (monthlyWorkHours * hourlySalary) + INTERNET_CONNECTION_PRICE;
+        return (monthlyWorkHours * getHourlySalary()) + INTERNET_CONNECTION_PRICE;
     }
 
     @Override
     public void extraPaidVacations(int monthlyWorkHours) {
-        System.out.println(this.surname + ", " + this.name + " get no extra paid vacations. Paid vacations: " + this.paidVacations);
+        System.out.println(this.getSurname() + ", " + this.getName() + " get no extra paid vacations. Paid vacations: " + this.paidVacations + " days.");
     }
 }

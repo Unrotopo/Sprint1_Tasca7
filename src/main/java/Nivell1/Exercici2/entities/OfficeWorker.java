@@ -10,16 +10,16 @@ public class OfficeWorker extends Worker {
 
     @Override
     public double calculateSalary(int monthlyWorkHours) {
-        return (hourlySalary * monthlyWorkHours) + gasoline;
+        return (getHourlySalary() * monthlyWorkHours) + gasoline;
     }
 
     @Override
     public void extraPaidVacations(int monthlyWorkHours) {
         if (monthlyWorkHours >= 200) {
-            paidVacations += 2;
-            System.out.println("Paid vacations for " + this.surname + ", " + this.name + ": " + paidVacations);
+            this.paidVacations += 2;
+            System.out.println("Paid vacations for " + this.getSurname() + ", " + this.getName() + ": " + this.paidVacations + " days.");
         } else {
-            System.out.println("There is no extra paid vacation days for " + this.surname + ", " + this.name + ". Paid vacations: " + this.paidVacations);
+            System.out.println("There is no extra paid vacation days for " + this.getSurname() + ", " + this.getName() + ". Paid vacations: " + this.paidVacations + " days.");
         }
     }
 }
