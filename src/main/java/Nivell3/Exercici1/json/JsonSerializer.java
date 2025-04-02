@@ -9,7 +9,6 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-import java.sql.SQLOutput;
 
 public class JsonSerializer {
 
@@ -35,7 +34,7 @@ public class JsonSerializer {
         }
     }
 
-    public static void annotationReader(Clown clown) throws IOException {
+    public static void annotationReader(Clown clown) {
 
         Class<? extends Clown> clazz = clown.getClass();
 
