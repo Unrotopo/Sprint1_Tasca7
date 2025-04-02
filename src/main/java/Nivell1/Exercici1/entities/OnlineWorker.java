@@ -10,6 +10,9 @@ public class OnlineWorker extends Worker {
 
     @Override
     public double calculateSalary(int monthlyWorkHours) {
-        return (monthlyWorkHours * hourlySalary) + INTERNET_CONNECTION_PRICE;
+        if (monthlyWorkHours < 1){
+            throw new IllegalArgumentException("Monthly salary cannot be negative");
+        }
+        return (monthlyWorkHours * getHourlySalary()) + INTERNET_CONNECTION_PRICE;
     }
 }

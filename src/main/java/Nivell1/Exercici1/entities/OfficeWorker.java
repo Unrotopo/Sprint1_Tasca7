@@ -2,7 +2,7 @@ package Nivell1.Exercici1.entities;
 
 public class OfficeWorker extends Worker {
 
-    static double gasoline = 60.0;
+    static final double GASOLINE = 60.0;
 
     public OfficeWorker(String name, String surname, double hourlySalary) {
         super(name, surname, hourlySalary);
@@ -10,6 +10,9 @@ public class OfficeWorker extends Worker {
 
     @Override
     public double calculateSalary(int monthlyWorkHours) {
-        return (hourlySalary * monthlyWorkHours) + gasoline;
+        if (monthlyWorkHours < 1){
+            throw new IllegalArgumentException("Monthly salary cannot be negative");
+        }
+        return (getHourlySalary() * monthlyWorkHours) + GASOLINE;
     }
 }
