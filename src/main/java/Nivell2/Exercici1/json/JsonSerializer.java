@@ -8,6 +8,9 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -32,6 +35,17 @@ public class JsonSerializer {
             System.out.println("JSON saved to " + filePath);
         } else {
             System.out.println("No @JsonFile annotation found");
+        }
+    }
+
+    public static void validateJsonPath(Clown clown) throws IOException {
+        JsonFile annotation = clown.getClass().getAnnotation(JsonFile.class);
+        if (annotation != null ) {
+            Path jsonPath = Paths.get(annotation.path());
+
+            if (!Files.exists(jsonPath) || !Files.isRegularFile(jsonPath)) {
+                throw new  IOException(jsonPath.toString() + " is not a valid JSON path");
+            }
         }
     }
 }

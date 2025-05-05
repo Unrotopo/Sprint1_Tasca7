@@ -7,15 +7,6 @@ public abstract class Worker {
     private double hourlySalary;
 
     protected Worker(String name, String surname, double hourlySalary) {
-        if (name == null || name.trim().isEmpty()){
-            throw new IllegalArgumentException("Name cannot be null or empty");
-        }
-        if (surname == null || surname.trim().isEmpty()){
-            throw new IllegalArgumentException("Surname cannot be null or empty");
-        }
-        if (hourlySalary <= 0){
-            throw new IllegalArgumentException("Hourly salary cannot be negative");
-        }
         this.name = name;
         this.surname = surname;
         this.hourlySalary = hourlySalary;

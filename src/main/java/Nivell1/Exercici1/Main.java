@@ -1,7 +1,6 @@
 package Nivell1.Exercici1;
 
-import Nivell1.Exercici1.entities.OfficeWorker;
-import Nivell1.Exercici1.entities.OnlineWorker;
+import Nivell1.Exercici1.entities.*;
 
 public class Main {
     public static void main(String[] args) {

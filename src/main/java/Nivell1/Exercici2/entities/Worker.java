@@ -8,15 +8,6 @@ public abstract class Worker {
     protected int paidVacations = 30;
 
     protected Worker(String name, String surname, double hourlySalary) {
-        if (name == null || name.trim().isEmpty()) {
-            throw new IllegalArgumentException("Name cannot be null or empty");
-        }
-        if (surname == null || surname.trim().isEmpty()) {
-            throw new IllegalArgumentException("Surname cannot be null or empty");
-        }
-        if (hourlySalary < 0) {
-            throw new IllegalArgumentException("Hourly salary cannot be negative");
-        }
         this.name = name;
         this.surname = surname;
         this.hourlySalary = hourlySalary;
@@ -55,9 +46,6 @@ public abstract class Worker {
      */
     @Deprecated
     public void extraPaidVacations(int monthlyWorkHours) {
-        if (monthlyWorkHours < 0) {
-            throw new IllegalArgumentException("Monthly salary cannot be negative");
-        }
         if (monthlyWorkHours >= 200) {
             this.paidVacations += 2;
             System.out.println("Paid vacations for " + this.getSurname() + ", " + this.getName() + ": " + this.paidVacations + " days.");

@@ -36,7 +36,7 @@ public class JsonSerializer {
 
     public static void annotationReader(Clown clown) {
 
-        Class<? extends Clown> clazz = clown.getClass();
+        Class<?> clazz = clown.getClass();
 
         if (clazz.isAnnotationPresent(JsonFile.class)) {
             JsonFile annotation = clazz.getAnnotation(JsonFile.class);

@@ -1,11 +1,11 @@
 package Nivell3.Exercici1.entities;
 
-import Nivell3.Exercici1.json.JsonSerializer;
+import Nivell3.Exercici1.json.JsonSerializer.JsonFile;
 
 import java.io.IOException;
 import java.nio.file.*;
 
-@JsonSerializer.JsonFile(path = "src/main/java/Nivell3/Exercici1/json/clown.json")
+@JsonFile(path = "src/main/java/Nivell3/Exercici1/json/clown.json")
 public class Clown {
 
     private String clownName;
@@ -18,7 +18,7 @@ public class Clown {
     }
 
     public void validateJsonPath() throws IOException {
-        JsonSerializer.JsonFile annotation = this.getClass().getAnnotation(JsonSerializer.JsonFile.class);
+        JsonFile annotation = this.getClass().getAnnotation(JsonFile.class);
         if (annotation != null ) {
             Path jsonPath = Paths.get(annotation.path());
 
